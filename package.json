@@ -1,6 +1,7 @@
 {
   "name": "holidays-app",
   "version": "0.1.0",
+  "proxy": "https://jsonplaceholder.typicode.com",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
