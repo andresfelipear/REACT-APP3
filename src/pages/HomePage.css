@@ -1,0 +1,7 @@
+.react-calendar{
+    border: none;
+}
+
+.react-calendar abbr{
+    text-decoration: none!important;
+}
