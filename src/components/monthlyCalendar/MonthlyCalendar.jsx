@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Calendar from "react-calendar"
-import { Box, Section, Card, Heading } from "react-bulma-components"
+import { Box, Section, Heading } from "react-bulma-components"
 import 'react-calendar/dist/Calendar.css'
 import './MonthlyCalendar.css'
 
@@ -30,7 +30,7 @@ function MonthlyCalendar({ date, arrayHolidays }) {
 
     return (
         <Section style={{width:'fit-content', padding:'0px'}}>  
-            <Heading textAlign={'center'}>{month}</Heading>
+            <Heading size={3} textAlign={'center'}>{month}</Heading>
             <Box style={{ width: 'fit-content' }}>
                 <Calendar
                     onChange={onChange}
