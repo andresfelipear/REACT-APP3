@@ -18,8 +18,8 @@ function MonthlyCalendar({ date, arrayHolidays }) {
         const dayNumber = date.getDate()
         let findDay = false;
         arrayHolidays.forEach((holiday) => {
-            const day = new Date(holiday.date)
-            if (dayNumber === (day.getDate()+1)) {
+            const day = new Date(holiday.date.replace(/-/g,'/'))
+            if (dayNumber === (day.getDate())) {
                 findDay = true;
             }
         })

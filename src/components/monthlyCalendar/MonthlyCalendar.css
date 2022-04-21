@@ -8,7 +8,11 @@
 
 
 .react-calendar__tile--active{
-    background-color: white!important;
+    background-color: white;
+    color: black!important;
+}
+.react-calendar__tile--active:hover{
+    background-color: grey!important;
     color: black!important;
 }
 

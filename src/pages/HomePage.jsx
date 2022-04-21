@@ -5,27 +5,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobe, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 function HomePage() {
-
-    const date = new Date('2022-08-13')
-    const holidays2 = [1, 6, 15, 29]
     const [holidays, setHolidays] = useState([])
     const [countries, setCountries] = useState([])
     const [countryFull, setCountryFull] = useState("")
     const [loading, setLoading] = useState(false)
     const [country, setCountry] = useState("CA")
     const monthsYear = [
-        new Date('2021-01-02'),
-        new Date('2021-02-02'),
-        new Date('2021-03-02'),
-        new Date('2021-04-02'),
-        new Date('2021-05-02'),
-        new Date('2021-06-02'),
-        new Date('2021-07-02'),
-        new Date('2021-08-02'),
-        new Date('2021-09-02'),
-        new Date('2021-10-02'),
-        new Date('2021-11-02'),
-        new Date('2021-12-02'),
+        new Date('2021-01-01'.replace(/-/g,'/')),
+        new Date('2021-02-01'.replace(/-/g,'/')),
+        new Date('2021-03-01'.replace(/-/g,'/')),
+        new Date('2021-04-01'.replace(/-/g,'/')),
+        new Date('2021-05-01'.replace(/-/g,'/')),
+        new Date('2021-06-01'.replace(/-/g,'/')),
+        new Date('2021-07-01'.replace(/-/g,'/')),
+        new Date('2021-08-01'.replace(/-/g,'/')),
+        new Date('2021-09-01'.replace(/-/g,'/')),
+        new Date('2021-10-01'.replace(/-/g,'/')),
+        new Date('2021-11-01'.replace(/-/g,'/')),
+        new Date('2021-12-01'.replace(/-/g,'/')),
     ]
 
     const UrlApi = "https://holidayapi.com/v1"
@@ -114,7 +111,7 @@ function HomePage() {
             <Columns gap={2} mt={6}>
                 {holidays.length !== 0 && (
                     monthsYear.map(month => {
-                        const holidaysMonth = holidays.filter(monthHolidays => new Date(monthHolidays.date).getMonth() === month.getMonth())
+                        const holidaysMonth = holidays.filter(monthHolidays => new Date((monthHolidays.date).replace(/-/g,'/')).getMonth() === month.getMonth())
                         return (
                             <Columns.Column display='flex' size={'one-third'} justifyContent='center' key={month.toString()}>
                                 <MonthlyCalendar date={month} arrayHolidays={holidaysMonth} />
