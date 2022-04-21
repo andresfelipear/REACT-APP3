@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import Calendar from "react-calendar"
-import { Box, Section, Card } from "react-bulma-components"
+import { Box, Section, Card, Heading } from "react-bulma-components"
 import 'react-calendar/dist/Calendar.css'
 import './MonthlyCalendar.css'
 
-function MonthlyCalendar({date, arrayHolidays}) {
-
-
+function MonthlyCalendar({ date, arrayHolidays }) {
+    const options = {month:'long'}
+    const month = new Intl.DateTimeFormat('en-US', options).format(date)
 
     const [value, setValue] = useState(date);
 
@@ -14,23 +14,25 @@ function MonthlyCalendar({date, arrayHolidays}) {
         setValue(nextValue);
     }
 
-    const tileClassName = ({date, view})=>{
+    const tileClassName = ({ date, view }) => {
         const dayNumber = date.getDate()
         let findDay = false;
-        arrayHolidays.forEach((day)=>{
-            if(dayNumber === day){
+        arrayHolidays.forEach((day) => {
+            if (dayNumber === day) {
                 findDay = true;
             }
         })
-        if(findDay){
+        if (findDay) {
             console.log("hola");
             return 'dayHoliday';
         }
     }
 
     return (
-        <Box style={{width:'fit-content'}}>
-                <Calendar 
+        <Section style={{width:'fit-content', padding:'0px'}}>  
+            <Heading textAlign={'center'}>{month}</Heading>
+            <Box style={{ width: 'fit-content' }}>
+                <Calendar
                     onChange={onChange}
                     value={value}
                     nextLabel={null}
@@ -43,7 +45,10 @@ function MonthlyCalendar({date, arrayHolidays}) {
                     tileClassName={tileClassName}
                     activeStartDate={null}
                 />
-        </Box>
+            </Box>
+        </Section>
+
+
 
 
     );

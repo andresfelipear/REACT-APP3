@@ -4,7 +4,7 @@ import MonthlyCalendar from '../components/monthlyCalendar/MonthlyCalendar'
 
 function HomePage() {
 
-    const date = new Date('2022-08-12')
+    const date = new Date('2022-08-13')
     const holidays = [1,6,15,29]
   return (
     <Section>
