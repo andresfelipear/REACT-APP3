@@ -54,6 +54,10 @@ function HomePage() {
         }
     }, [holidays, fetchHolidays]);
 
+    useEffect(() => {
+        fetchHolidays();
+    }, [country]);
+
     const fetchCountries = useCallback(() => {
         setLoading(true);
         fetch(`${UrlApi}/countries?pretty&key=${process.env.REACT_APP_API_KEY}`, {
@@ -76,6 +80,16 @@ function HomePage() {
             fetchCountries();
         }
     }, [countries, fetchCountries]);
+
+    useEffect(() => {
+        if (countries.length !== 0) {
+            const countryCode = countries.find(ctry => (ctry.name).toLowerCase() === countryFull.toLowerCase())
+            if (countryCode) {
+                console.log(countryCode.code)
+                setCountry(countryCode.code)
+            }
+        }
+    }, [countryFull]);
 
     if (loading) {
         return (
