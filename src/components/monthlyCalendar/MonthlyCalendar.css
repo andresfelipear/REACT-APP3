@@ -1,0 +1,13 @@
+.react-calendar{
+    border: none;
+}
+
+.react-calendar abbr{
+    text-decoration: none!important;
+}
+
+.react-calendar .dayHoliday {
+    background-color: rgb(255, 166, 0);
+    color: white;
+    border: 0.1px inset black;
+}
