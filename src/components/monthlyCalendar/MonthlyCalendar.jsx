@@ -17,19 +17,19 @@ function MonthlyCalendar({ date, arrayHolidays }) {
     const tileClassName = ({ date, view }) => {
         const dayNumber = date.getDate()
         let findDay = false;
-        arrayHolidays.forEach((day) => {
-            if (dayNumber === day) {
+        arrayHolidays.forEach((holiday) => {
+            const day = new Date(holiday.date)
+            if (dayNumber === (day.getDate()+1)) {
                 findDay = true;
             }
         })
         if (findDay) {
-            console.log("hola");
             return 'dayHoliday';
         }
     }
 
     return (
-        <Section style={{width:'fit-content', padding:'0px'}}>  
+        <Section marginless style={{width:'fit-content', padding:'0px'}}>  
             <Heading size={3} textAlign={'center'}>{month}</Heading>
             <Box style={{ width: 'fit-content' }}>
                 <Calendar
