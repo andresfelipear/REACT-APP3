@@ -5,3 +5,7 @@
 .react-calendar abbr{
     text-decoration: none!important;
 }
+
+.react-calendar .dayHoliday{
+    background-color: aqua;
+}
