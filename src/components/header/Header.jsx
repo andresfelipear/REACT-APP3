@@ -11,7 +11,7 @@ function Header() {
 
     return (
         <div>
-            <Box radiusless display="flex" shadowless marginless justifyContent="center" style={{ backgroundColor: "#905960" }}>
+            <Box radiusless display="flex" shadowless marginless justifyContent="center" style={{ backgroundColor: "#E80505" }}>
                 <Breadcrumb separator="bullet" className="header">
                     <Breadcrumb.Item active>
                         <a style={{ color: "white", flexDirection: "column", marginInline: "30px" }}>

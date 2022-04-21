@@ -7,7 +7,7 @@ import "./Foot.css"
 function Foot() {
     return (
         <Footer style={{ paddingInline: "0px" }} textAlign="center" backgroundColor='white'>
-            <Box radiusless display="flex" shadowless marginless justifyContent="center" style={{ backgroundColor: "#905960" }}>
+            <Box radiusless display="flex" shadowless marginless justifyContent="center" style={{ backgroundColor: "#E80505" }}>
                 <Breadcrumb separator="arrow">
 
                     <Breadcrumb.Item active>

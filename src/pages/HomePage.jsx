@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { Section, Notification, Heading, Columns } from 'react-bulma-components'
+import { Section, Notification, Heading, Columns, Form, Icon } from 'react-bulma-components'
 import MonthlyCalendar from '../components/monthlyCalendar/MonthlyCalendar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGlobe, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 function HomePage() {
 
@@ -8,6 +10,7 @@ function HomePage() {
     const holidays2 = [1, 6, 15, 29]
     const [holidays, setHolidays] = useState([])
     const [countries, setCountries] = useState([])
+    const [countryFull, setCountryFull] = useState("")
     const [loading, setLoading] = useState(false)
     const [country, setCountry] = useState("CA")
     const monthsYear = [
@@ -83,13 +86,24 @@ function HomePage() {
     }
     return (
         <Section >
-            <Columns  gap={2}>
+            <Form.Field>
+                <Form.Control>
+                    <Icon align='left'>
+                        <FontAwesomeIcon icon={faGlobe} />
+                    </Icon>
+                    <Icon align='right'>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </Icon>
+                    <Form.Input value={countryFull} type="text" name="country" placeholder='Search for your country' onChange={(e) => { setCountryFull(e.target.value) }} />
+                </Form.Control>
+            </Form.Field>
+            <Columns gap={2} mt={6}>
                 {holidays.length !== 0 && (
                     monthsYear.map(month => {
                         const holidaysMonth = holidays.filter(monthHolidays => new Date(monthHolidays.date).getMonth() === month.getMonth())
                         return (
                             <Columns.Column display='flex' size={'one-third'} justifyContent='center' key={month.toString()}>
-                                <MonthlyCalendar date={month} arrayHolidays={holidaysMonth}  />
+                                <MonthlyCalendar date={month} arrayHolidays={holidaysMonth} />
                             </Columns.Column>
 
                         )
