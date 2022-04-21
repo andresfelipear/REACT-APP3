@@ -46,7 +46,6 @@ function HomePage() {
     const YEAR = '2021'
 
     const fetchHolidays = useCallback(() => {
-        console.log(province)
         setLoading(true);
         fetch(`${UrlApi}/holidays?pretty&key=${process.env.REACT_APP_API_KEY}&country=${country}&year=${YEAR}&subdivisions=true`, {
             method: "GET",
@@ -64,12 +63,8 @@ function HomePage() {
                 const totalHolidays = canadaHolidays.concat(provinceHolidays)
                 setHolidays(totalHolidays);
             }
-            else {
-                // openModal("Error Post", "Error fetching data")
-                console.log('hola')
-            }
             setLoading(false);
-        }).catch(err => { setLoading(false) });
+        }).catch(err => {console.log(err); setLoading(false) });
     }, [country, province])
 
     useEffect(() => {
@@ -92,12 +87,8 @@ function HomePage() {
                 const data = await response.json();
                 setCountries(data.countries);
             }
-            else {
-                // openModal("Error Post", "Error fetching data")
-                console.log('hola')
-            }
             setLoading(false);
-        }).catch(err => { setLoading(false) });
+        }).catch(err => {console.log(err); setLoading(false) });
     }, [])
 
     useEffect(() => {
