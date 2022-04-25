@@ -2,12 +2,12 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { Section, Notification, Heading, Columns, Form, Icon } from 'react-bulma-components'
 import MonthlyCalendar from '../components/monthlyCalendar/MonthlyCalendar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGlobe, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faCalendarDay, faCalendarXmark, faGlobe, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 function HomePage() {
     const [holidays, setHolidays] = useState([])
     const [countries, setCountries] = useState([])
-    const [countryFull, setCountryFull] = useState("")
+    const [countryFull, setCountryFull] = useState("Canada")
     const [loading, setLoading] = useState(false)
     const [country, setCountry] = useState("CA")
     const [province, setProvince] = useState("CA-BC")
@@ -64,7 +64,7 @@ function HomePage() {
                 setHolidays(totalHolidays);
             }
             setLoading(false);
-        }).catch(err => {console.log(err); setLoading(false) });
+        }).catch(err => { console.log(err); setLoading(false) });
     }, [country, province])
 
     useEffect(() => {
@@ -88,7 +88,7 @@ function HomePage() {
                 setCountries(data.countries);
             }
             setLoading(false);
-        }).catch(err => {console.log(err); setLoading(false) });
+        }).catch(err => { console.log(err); setLoading(false) });
     }, [])
 
     useEffect(() => {
@@ -146,13 +146,27 @@ function HomePage() {
                     </Form.Select>
                 </Form.Control>
             </Form.Field>
+
             <Columns gap={2} mt={6}>
                 {holidays.length !== 0 && (
                     monthsYear.map(month => {
                         const holidaysMonth = holidays.filter(monthHolidays => new Date((monthHolidays.date).replace(/-/g, '/')).getMonth() === month.getMonth())
                         return (
-                            <Columns.Column display='flex' size={'one-third'} justifyContent='center' key={month.toString()}>
+                            <Columns.Column size={'one-third'} justifyContent='center' key={month.toString()}>
                                 <MonthlyCalendar date={month} arrayHolidays={holidaysMonth} />
+                                {holidaysMonth.length > 0 && (
+                                    <ul style={{marginTop:'10px',paddingLeft:'5px', color:"#E80505"}}>
+                                        {holidaysMonth.map((holiday) => {
+                                            return (
+
+                                                <li key={holiday.name} style={{display:'flex', alignItems:'center'}}>
+                                                    <Icon><FontAwesomeIcon icon={faCalendarDay} /></Icon>
+                                                    <Heading size={6} subtitle  >{holiday.name}</Heading>
+                                                </li>
+                                            )
+                                        })}
+                                    </ul>
+                                )}
                             </Columns.Column>
 
                         )
