@@ -7,11 +7,11 @@ import "./Foot.css"
 function Foot() {
     return (
         <Footer style={{ paddingInline: "0px" }} textAlign="center" backgroundColor='white'>
-            <Box radiusless display="flex" shadowless marginless justifyContent="center" style={{ backgroundColor: "#E80505" }}>
+            <Box radiusless shadowless marginless style={{ backgroundColor: "#E80505" }}>
                 <Breadcrumb separator="arrow">
 
-                    <Breadcrumb.Item active>
-                        <a style={{ color: "white", flexDirection: "column", marginInline: "30px" }}>
+                    <Breadcrumb.Item >
+                        <a style={{ color: "white", flexDirection: "column"}}>
                             <strong> Contact Us</strong>
                             <div style={{ flexDirection: "row", display: "flex", alignItems: "center" }}>
                                 <Icon size="large">
@@ -25,10 +25,10 @@ function Foot() {
                         </a>
                     </Breadcrumb.Item>
 
-                    <Breadcrumb.Item active>
-                        <a style={{ color: "white", flexDirection: "column", marginInline: "30px" }}>
+                    <Breadcrumb.Item >
+                        <a style={{ color: "white", flexDirection: "column"}}>
                             <strong> Social Media</strong>
-                            <div style={{ marginTop: "10px" }}>
+                            <div >
                                 <Icon size="large">
                                     <FontAwesomeIcon size="lg" icon={faFacebook}/>
                                 </Icon>

@@ -11,10 +11,10 @@ function Header() {
 
     return (
         <div>
-            <Box radiusless display="flex" shadowless marginless justifyContent="center" style={{ backgroundColor: "#E80505" }}>
-                <Breadcrumb separator="bullet" className="header">
-                    <Breadcrumb.Item active>
-                        <a style={{ color: "white", flexDirection: "column", marginInline: "30px" }}>
+            <Box className="header" radiusless style={{ backgroundColor: "#E80505"}}>
+                <Breadcrumb justifyContent="center" separator="dot">
+                    <Breadcrumb.Item >
+                        <a style={{ color: "white", flexDirection: "column"}}>
                             <strong>Contact Numbers</strong>
                             <div>
                                 <Icon size="small">
@@ -26,8 +26,8 @@ function Header() {
                         </a>
                     </Breadcrumb.Item>
 
-                    <Breadcrumb.Item active>
-                        <a style={{ color: "white", flexDirection: "column", marginInline: "30px" }}>
+                    <Breadcrumb.Item >
+                        <a style={{ color: "white", flexDirection: "column"}}>
                             <strong> Schedule</strong>
                             <div>
                                 <Icon size="small">
