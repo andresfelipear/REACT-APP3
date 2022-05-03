@@ -118,7 +118,7 @@ function HomePage() {
         )
     }
     return (
-        <Section >
+        <Section className='mainSection' >
             <Form.Field>
                 <Form.Control>
                     <Icon align='left'>
@@ -147,19 +147,19 @@ function HomePage() {
                 </Form.Control>
             </Form.Field>
 
-            <Columns gap={2} mt={6}>
+            <Columns gap={2} mt={6} justifyContent={'center'}>
                 {holidays.length !== 0 && (
                     monthsYear.map(month => {
                         const holidaysMonth = holidays.filter(monthHolidays => new Date((monthHolidays.date).replace(/-/g, '/')).getMonth() === month.getMonth())
                         return (
-                            <Columns.Column size={'one-third'} justifyContent='center' key={month.toString()}>
+                            <Columns.Column tablet={{size:'half'}} desktop={{size:'half'}} widescreen={{size:'one-third'}}  key={month.toString()}>
                                 <MonthlyCalendar date={month} arrayHolidays={holidaysMonth} />
                                 {holidaysMonth.length > 0 && (
                                     <ul style={{marginTop:'10px',paddingLeft:'5px', color:"#E80505"}}>
                                         {holidaysMonth.map((holiday) => {
                                             return (
 
-                                                <li key={holiday.name} style={{display:'flex', alignItems:'center'}}>
+                                                <li key={holiday.name} style={{display:'flex', alignItems:'center', justifyContent:'left'}}>
                                                     <Icon><FontAwesomeIcon icon={faCalendarDay} /></Icon>
                                                     <Heading size={6} subtitle  >{holiday.name}</Heading>
                                                 </li>

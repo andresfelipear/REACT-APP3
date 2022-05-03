@@ -29,9 +29,9 @@ function MonthlyCalendar({ date, arrayHolidays }) {
     }
 
     return (
-        <Section marginless style={{width:'fit-content', padding:'0px'}}>  
+        <Section style={{width:'100%', padding:'0px', marginLeft:'auto', marginRight:'auto'}}>  
             <Heading size={3} textAlign={'center'}>{month}</Heading>
-            <Box style={{ width: 'fit-content' }}>
+            <Box className='contentCalendar' style={{ width: '90%', height:'288px', display:'flex', alignItems:'center', justifyContent:'center', marginInline:'auto'}}>
                 <Calendar
                     onChange={onChange}
                     value={value}

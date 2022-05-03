@@ -1,19 +1,20 @@
-.react-calendar{
+.react-calendar {
     border: none;
 }
 
-.react-calendar abbr{
-    text-decoration: none!important;
+.react-calendar abbr {
+    text-decoration: none !important;
 }
 
 
-.react-calendar__tile--active{
+.react-calendar__tile--active {
     background-color: white;
-    color: white!important;
+    color: white !important;
 }
-.react-calendar__tile--active:hover{
-    background-color: #e6e6e6!important;
-    color: black!important;
+
+.react-calendar__tile--active:hover {
+    background-color: #e6e6e6 !important;
+    color: black !important;
 }
 
 .react-calendar .dayHoliday {
@@ -21,3 +22,14 @@
     color: white;
     border: 0.1px inset black;
 }
+
+.react-calendar {
+    width: fit-content !important;
+}
+
+@media screen and (min-width:426px) and (max-width:769px) {
+    .contentCalendar{
+        width: 60%!important;
+    }
+}
+
