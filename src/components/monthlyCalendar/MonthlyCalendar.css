@@ -33,3 +33,9 @@
     }
 }
 
+@media screen and (max-width:320px) {
+    .contentCalendar .react-calendar{
+        font-size: 0.8rem!important;
+    }
+}
+
