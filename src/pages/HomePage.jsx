@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDay, faGlobe, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 function HomePage() {
+    const previousYear = new Date().getFullYear() - 1;
     const [holidays, setHolidays] = useState([])
     const [countries, setCountries] = useState([])
     const [countryFull, setCountryFull] = useState("Canada")
@@ -27,7 +28,7 @@ function HomePage() {
         { code: 'CA-YT', name: 'Yukon' }
         ])
 
-    const YEAR = '2022'
+    const YEAR = previousYear
 
     const monthsYear = [
         new Date(`${YEAR}-01-01`.replace(/-/g, '/')),
