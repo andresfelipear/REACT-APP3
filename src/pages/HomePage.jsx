@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { Section, Notification, Heading, Columns, Form, Icon } from 'react-bulma-components'
 import MonthlyCalendar from '../components/monthlyCalendar/MonthlyCalendar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarDay, faCalendarXmark, faGlobe, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faCalendarDay, faGlobe, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 function HomePage() {
     const [holidays, setHolidays] = useState([])
@@ -27,23 +27,25 @@ function HomePage() {
         { code: 'CA-YT', name: 'Yukon' }
         ])
 
+    const YEAR = '2022'
+
     const monthsYear = [
-        new Date('2021-01-01'.replace(/-/g, '/')),
-        new Date('2021-02-01'.replace(/-/g, '/')),
-        new Date('2021-03-01'.replace(/-/g, '/')),
-        new Date('2021-04-01'.replace(/-/g, '/')),
-        new Date('2021-05-01'.replace(/-/g, '/')),
-        new Date('2021-06-01'.replace(/-/g, '/')),
-        new Date('2021-07-01'.replace(/-/g, '/')),
-        new Date('2021-08-01'.replace(/-/g, '/')),
-        new Date('2021-09-01'.replace(/-/g, '/')),
-        new Date('2021-10-01'.replace(/-/g, '/')),
-        new Date('2021-11-01'.replace(/-/g, '/')),
-        new Date('2021-12-01'.replace(/-/g, '/')),
+        new Date(`${YEAR}-01-01`.replace(/-/g, '/')),
+        new Date(`${YEAR}-02-01`.replace(/-/g, '/')),
+        new Date(`${YEAR}-03-01`.replace(/-/g, '/')),
+        new Date(`${YEAR}-04-01`.replace(/-/g, '/')),
+        new Date(`${YEAR}-05-01`.replace(/-/g, '/')),
+        new Date(`${YEAR}-06-01`.replace(/-/g, '/')),
+        new Date(`${YEAR}-07-01`.replace(/-/g, '/')),
+        new Date(`${YEAR}-08-01`.replace(/-/g, '/')),
+        new Date(`${YEAR}-09-01`.replace(/-/g, '/')),
+        new Date(`${YEAR}-10-01`.replace(/-/g, '/')),
+        new Date(`${YEAR}-11-01`.replace(/-/g, '/')),
+        new Date(`${YEAR}-12-01`.replace(/-/g, '/')),
     ]
 
     const UrlApi = "https://holidayapi.com/v1"
-    const YEAR = '2021'
+    
 
     const fetchHolidays = useCallback(() => {
         setLoading(true);
@@ -75,7 +77,7 @@ function HomePage() {
 
     useEffect(() => {
         fetchHolidays();
-    }, [country, province]);
+    }, [country, province, fetchHolidays]);
 
 
     const fetchCountries = useCallback(() => {
@@ -108,7 +110,7 @@ function HomePage() {
 
             }
         }
-    }, [countryFull]);
+    }, [countryFull, countries]);
 
     if (loading) {
         return (
